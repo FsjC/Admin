@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <!-- cdn of jquery -->
-    <script text="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<!-- cdn of bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<!-- cdn fontsawesome -->
-<script type="text/javascript" src="https://kit.fontawesome.com/7b41877e5c.js" crossorigin="anonymous"></script>
-<!-- cdn of adminLTE -->
-<script type="text/javascript"src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <!-- cdn of jquery -->
+  <script text="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- cdn of bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- cdn fontsawesome -->
+  <script type="text/javascript" src="https://kit.fontawesome.com/7b41877e5c.js" crossorigin="anonymous"></script>
+  <!-- cdn of adminLTE -->
+  <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+  <!--cdn chart.js  -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- SideBar -->
-    <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="site-wrapper">
+  <!-- SideBar -->
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="#" class="brand-link logo-switch">
   <img src="fel.jpg" alt="AdminLTE Docs Logo Small" class="brand-image-xl logo-xs">
   <img src="fel.jpg" alt="AdminLTE Docs Logo Large" class="brand-image-xs logo-xl" style="left: 12px">
-</a>
+  </a>
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
@@ -213,6 +217,56 @@
   </ul>
 </nav>
 <!-- /.navbar -->
+
+<!-- Content Section -->
+  
+    <div class="content-wrapper">
+    <h4>Monthly Income</h4>
+    <p>Welcome to our monthly income report. In this section, we will explore the details of our financial performance over the past months.</p>
     
+    <canvas id="chart" width="400" height="140"></canvas>
+    <aside  class="control-sidebar control-sidebar-dark">
+
+    </aside>
+
+  </div>   
+  </div>
+     <script>
+        var ctx = document.getElementById('chart').getContext('2d');
+
+        // Define the data object
+      var data = {
+      datasets: [{
+      label: 'Monthly Income',
+      data: [{
+      x: 20,
+      y: 30,
+      r: 15
+    }, {
+      x: 40,
+      y: 10,
+      r: 10
+    }, {
+      x: 22,
+      y: 25,
+      r: 25,
+    }, {
+      x: 38,
+      y: 15,
+      r: 10
+    }
+
+  ],
+      backgroundColor: 'rgb(255, 99, 132)'
+  }]
+};
+
+      // Create the bubble chart
+      var bubbleChart = new Chart(ctx, {
+      type: 'bubble',
+  data: data,
+  options: {} // Add your options here if needed
+});
+</script>
 </body>
 </html>
